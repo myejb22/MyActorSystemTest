@@ -10,7 +10,7 @@ import scala.collection.mutable
   *
   * @author Andy 2017/12/18
   */
-class Master(val hostNme: String, val port: Int) extends Actor {
+class Master(val hostName: String, val port: Int) extends Actor {
   private val id2WorkerInfo = new mutable.HashMap[String, WorkerInfo]()
   private val workerInfoes = new mutable.HashSet[WorkerInfo]()
 
@@ -43,7 +43,7 @@ class Master(val hostNme: String, val port: Int) extends Actor {
 
        //如果保存成功，那么它是注册成功了
        //master给worker发送了注册成功的信息
-       sender() ! RegisteredWorker(s"masterURL:hostName:${hostNme} port:${port}")
+       sender() ! RegisteredWorker(s"masterURL:hostName:${hostName} port:${port}")
      }
     }
 
